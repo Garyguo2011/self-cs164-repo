@@ -21,6 +21,7 @@
 
 */
 
+%glr-parser
 %start ANSWER
 
 %%
