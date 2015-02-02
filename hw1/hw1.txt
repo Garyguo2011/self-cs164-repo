@@ -5,7 +5,7 @@ CS164 Homework #1, Spring 2015
 
 
 2. 
- a.
+ a. A binary string that head and tail are zero (0)
  b.
  c.
  d.
