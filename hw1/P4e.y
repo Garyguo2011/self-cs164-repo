@@ -32,7 +32,19 @@
 
 
  /* REPLACE WITH YOUR SOLUTION */
-ANSWER : ;
+
+ZZ_OR_OO : '0' '0' | '1' '1' ;
+ZO_OR_OZ : '0' '1' | '1' '0' ;
+
+ZZ_OR_OO_STAR : ;
+ZZ_OR_OO_STAR : ZZ_OR_OO_STAR ZZ_OR_OO ;
+
+GROUP : ZO_OR_OZ ZZ_OR_OO_STAR ZO_OR_OZ ZZ_OR_OO_STAR ;
+
+GROUP_STAR : ;
+GROUP_STAR : GROUP_STAR GROUP ;
+
+ANSWER : ZZ_OR_OO_STAR GROUP_STAR ;
 
 
 /* End of grammar */

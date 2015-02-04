@@ -32,7 +32,16 @@
 
 
  /* REPLACE WITH YOUR SOLUTION */
+EMPTY : ;
+EMPTY_OR_ZERO : EMPTY | '0' ;
+
+ONE_STAR : ;
+ONE_STAR : ONE_STAR '1' ;
+
+GROUP : EMPTY_OR_ZERO ONE_STAR ;
+
 ANSWER : ;
+ANSWER : ANSWER GROUP ;
 
 
 /* End of grammar */
