@@ -4,8 +4,8 @@ dir=p3testcase
 for i in 'a' 'b' 'c' 'd' 'e' 'f'; do
 	echo ">>>> Test P3${i}.py >>>>>"
 	echo "Fail Cases:"
-	python P3${i}.py ${dir}/test-P3${i}-accept | tr ' ' ',' | column -s, -t | grep "reject"
-	python P3${i}.py ${dir}/test-P3${i}-reject | tr ' ' ',' | column -s, -t | grep "accept"
+	python P3${i}.py ${dir}/test-P3${i}-accept | tr ' ' ',' | grep "reject"
+	python P3${i}.py ${dir}/test-P3${i}-reject | tr ' ' ',' | grep "accept"
 done
 
 echo "test P4a Head tail 0"
