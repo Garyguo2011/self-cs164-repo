@@ -13,7 +13,8 @@ import sys, re
 #
 #    ANSWER = LETTER + ALPHANUM + "*"
 
-ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
+# ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
+ANSWER = r'^(0+10*|1*0*1?)$'
 
 # Restrictions: Besides ordinary characters (which stand for themselves),
 #     ANSWER must use only the constructs [...], *, +, |, ^, $, (...), ?,

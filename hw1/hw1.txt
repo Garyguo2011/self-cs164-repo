@@ -1,12 +1,14 @@
 CS164 Homework #1, Spring 2015
 
 
-1. 
+1.
+Number of subsequences = (N choose 1) + (N choose 2) + ... + (N choose N) = 2^n
+Number of substring = [N + (N - 1) + (N - 2) + ... + 1] + 1 = N(N + 1) / 2 + 1
 
 
 2. 
  a. A binary string that head and tail are zero (0)
- b.
- c.
- d.
- e.
+ b. A arbitrary binary string
+ c. A binary string with length at least 3. The third least significant bit is zero.
+ d. A binary string with arbitrary length, and only contain 3 one's
+ e. A binary string with even number of ZERO and even number of ONE
