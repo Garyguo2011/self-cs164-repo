@@ -14,7 +14,22 @@ import sys, re
 #    ANSWER = LETTER + ALPHANUM + "*"
 
 # ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
-ANSWER = r'1*0*(0+10*)*'
+ANSWER = r'^(00|11|(01|10)(00|11)*(10|01))*(1|(01|10)(11|00)*0)$'
+
+# ^
+# (00
+# |11
+# |
+#     (01|10)
+#     (00|11)*
+#     (10|01)
+# )*
+# (1
+# |
+#     (01|10)
+#     (11|00)*
+#     0)
+# $
 
 # Restrictions: Besides ordinary characters (which stand for themselves),
 #     ANSWER must use only the constructs [...], *, +, |, ^, $, (...), ?,
