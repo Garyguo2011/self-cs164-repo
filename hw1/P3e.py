@@ -15,7 +15,7 @@ import sys, re
 
 # ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
 # ANSWER = r'^([01]?[01]?|((0000??)*(0010?)*(010)*(100)*(101)*(110)*(111)*)*)$'
-ANSWER = r'1*(0+01)*'
+ANSWER = r'^1*0*(0+10*)*$'
 
 # Restrictions: Besides ordinary characters (which stand for themselves),
 #     ANSWER must use only the constructs [...], *, +, |, ^, $, (...), ?,
