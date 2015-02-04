@@ -13,7 +13,9 @@ import sys, re
 #
 #    ANSWER = LETTER + ALPHANUM + "*"
 
-ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
+NON_VOWELS = r'[^aeiou]*'
+
+ANSWER = NON_VOWELS + "a" + NON_VOWELS + "e" + NON_VOWELS + "i" + NON_VOWELS + "o" + NON_VOWELS + "u" + NON_VOWELS
 
 # Restrictions: Besides ordinary characters (which stand for themselves),
 #     ANSWER must use only the constructs [...], *, +, |, ^, $, (...), ?,

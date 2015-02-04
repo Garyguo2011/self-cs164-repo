@@ -13,7 +13,14 @@ import sys, re
 #
 #    ANSWER = LETTER + ALPHANUM + "*"
 
-ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
+# ANSWER = r'REPLACE WITH YOUR SOLUTION TO THIS PROBLEM'
+# ANSWER = r'^/\*        (([^\"]|!\*\/) * (\"[^\"]*\")*)*          \*/$'
+# ANSWER = r'^\/\* .*(!\*\/)* \*\/$'
+# ANSWER = r'^/\*        (([^\"]|!\*\/) * (\"[^\"]*\")*)*          \*/$'
+# ANSWER = r'^/\*( [^"\*]            )\*/$'
+# ANSWER = r'/\*(\*+[^"/])*\*/$'
+
+ANSWER = r'^/\*(([^"\*])|("[^"]*")|(\*+[^"/])|(\*"[^"]"))*\*?\*/$'
 
 # Restrictions: Besides ordinary characters (which stand for themselves),
 #     ANSWER must use only the constructs [...], *, +, |, ^, $, (...), ?,
