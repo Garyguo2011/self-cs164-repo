@@ -7,3 +7,19 @@ for i in 'a' 'b' 'c' 'd' 'e' 'f'; do
 	python P3${i}.py ${dir}/test-P3${i}-accept | tr ' ' ',' | column -s, -t | grep "reject"
 	python P3${i}.py ${dir}/test-P3${i}-reject | tr ' ' ',' | column -s, -t | grep "accept"
 done
+
+echo "test P4a Head tail 0"
+echo "00100"
+echo "00100" | ./P4a
+echo "010"
+echo "00100" | ./P4a
+echo "01"
+echo "00100" | ./P4a
+
+echo "test P4b "
+echo "00100"
+echo "00100" | ./P4a
+echo "010"
+echo "00100" | ./P4a
+echo "01"
+echo "00100" | ./P4a
