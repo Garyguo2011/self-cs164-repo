@@ -6,8 +6,8 @@ Number of subsequences = (N choose 1) + (N choose 2) + ... + (N choose N) = 2^n
 Number of substring = [N + (N - 1) + (N - 2) + ... + 1] + 1 = N(N + 1) / 2 + 1
 
 2. 
- a. A binary string that head and tail are zero (0)
- b. A arbitrary binary string
- c. A binary string with length at least 3. The third least significant bit is zero.
- d. A binary string with arbitrary length, and only contain 3 one's
- e. A binary string with even number of ZERO and even number of ONE
+ a. All strings of 0's and 1's with head and tail are zero (0)
+ b. All strings of 0's and 1's
+ c. All strings of 0's and 1's with length at least 3. The third least significant bit is zero.
+ d. All strings of 0's and 1's with length at least 3, and only contain 3 one's
+ e. All strings of 0's and 1's with even number of ZERO and even number of ONE
