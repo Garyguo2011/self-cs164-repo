@@ -48,5 +48,3 @@ while True:
         break
 print(contents, end="")
 
-# Self Adding line
-print('')
