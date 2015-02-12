@@ -6,7 +6,7 @@ start state A
 	[0] -> B
 state B
 	[0] -> C
-	[1] -> c
+	[1] -> C
 state C
 	[0] -> D
 	[1] -> D
