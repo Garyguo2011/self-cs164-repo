@@ -1,1 +1,26 @@
 # Problem 3 (DFA for problem 2c).
+start state A
+	[1] -> A
+	[0] -> B
+state B
+	[0] -> C
+	[1] -> D
+state C
+	[0] -> E
+	[1] -> F
+state D
+	[0] -> G
+	[1] -> H
+final state E
+	[0] -> E
+	[1] -> F
+final state F
+	[0] -> G
+	[1] -> H
+final state G
+	[0] -> C
+	[1] -> D
+final state H
+	[0] -> B
+	[1] -> A
+

@@ -1,0 +1,6 @@
+repo teams/YiwenPIs
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @YiwenPIs
+    -   refs/tags  = @YiwenPIs
+    RW+            = @YiwenPIs

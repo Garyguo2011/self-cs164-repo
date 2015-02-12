@@ -1,16 +1,26 @@
 HW #2.
-cd
-3.
 
-4. 
+3. Algorithm: Since L1 - L2 = L1 and (not L2) = not ((not L1) or L2), we can flip (i.e. change intermediate state to final state, final state to intermediate state.) M1 to get M3, which recognizes (not L1). Use following machine M4, which construct OR gate between (not L1) and L2,
+
+         -> M3 (not L1)
+  Empty /      
+       /
+   -> I 
+       \
+  Empty \ 
+         -> M2 (L2)
+
+Then, flip entire M4 (similar as first step) to construct M5, which recognizes not ((not L1) or L2) = L1 - L2
+
+4. String contain 'x','b','e','y'. Start with 'x' or 'b' and end with 'e' or 'x', which have equal number of 'b' and 'e', separated by arbitrary number of 'x'. 'y' only appear after 'b' occured. (Regular expression: '(x*b(x*bx*e)*x*y?(x*bx*e*)*x*ex*)*')
 
 5.
 
- 5a. 
+ 5a. Based on the definition of pumping lemma, The FSA also accepts all strings of the form ux*v. FSA must contain loops in order to make 'x' pumped any number of times. Therefore, if there is a FSA, which only have finite states that doesn't contain loops. (like, a linear FSA A -a-> B -b-> C(Final State)). It will violate the theorem. The number of 'x' will be finite.
 
- 5b.
+ 5b. M > the number of states that FSA has. In this way we must there are at least one loop in FSA
 
- 5c.
+ 5c. When M > the number of states that FSA has, FSA must contain some loop in FSA. For any string S with |S| > M, it must visit some states twice before it reach final state. Start with one of the state which visit twice, we can follow the pattern of FSA to find the repeat substring corresponds to 'x*' as loop. The substring before go into loop will be 'u' and the string after repeat substring will 'v'. That proves pumping lemma constructively.
 
- 5d.
+ 5d. For arbitrary M, by definition of pumping lemma, Suppose there are any string where |S| > 2M with form (ux*v) and yy^r. Since y not equal y^r, the repeat substring 'x*' must be substring of y. However if 'x*' only contain at 'y' then result string won't be enough to construct symmetric string yy^r.
 

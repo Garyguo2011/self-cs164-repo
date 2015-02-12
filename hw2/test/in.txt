@@ -1,0 +1,19 @@
+repo teams/YiwenPIs
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @YiwenPIs
+    -   refs/tags  = @YiwenPIs
+    RW+            = @YiwenPIs
+repo teams/YiwenPls
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @YiwenPls
+    -   refs/tags  = @YiwenPls
+    RW+            = @YiwenPls
+repo teams/Eeyore
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Eeyore
+    -   refs/tags  = @Eeyore
+    RW+            = @Eeyore
+

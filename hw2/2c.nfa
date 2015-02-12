@@ -1,1 +1,13 @@
 # Problem 3 (NFA for problem 2c).
+alphabet [01]
+start state A
+	[0] -> A
+	[1] -> A
+	[0] -> B
+state B
+	[0] -> C
+	[1] -> c
+state C
+	[0] -> D
+	[1] -> D
+final state D

@@ -24,7 +24,8 @@ import sys, re
 # sequence.  An end-of-line pattern that works on MacOS, Unix, and Windows is
 #    \r?\n
 
-ANSWER = r'REPLACE WITH SOMETHING'
+ANSWER = r'(repo\s+(\S*)\r?\n((.*?)\=(.*?)\r?\n)*)(repo\s+(\S*)\r?\n((.*?)\=(.*?)\r?\n)*)*(repo\s+(\2)\r?\n((.*?)\=(.*?)\r?\n)*)'
+
 
 if len(sys.argv) > 1:
     inp = open(sys.argv[1])
@@ -37,6 +38,7 @@ pattern = re.compile(ANSWER, re.MULTILINE)
 # MULTILINE means that ^ and $ will match the beginnings and ends of lines
 #   (before and after end-of-line sequences), as well as the beginning and
 #   end of the whole string.
+# print(contents)
 
 while True:
     mat = pattern.search(contents)
@@ -45,3 +47,6 @@ while True:
     else:
         break
 print(contents, end="")
+
+# Self Adding line
+print('')

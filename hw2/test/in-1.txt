@@ -1,0 +1,244 @@
+repo   teams/A
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @A
+    -   refs/tags  = @A
+    RW+            = @A
+repo  teams/Bajingo
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Bajingo
+    -   refs/tags  = @Bajingo
+    RW+            = @Bajingo
+repo  teams/Bajingo
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Bajingo
+    -   refs/tags  = @Bajingo
+    RW+            = @Bajingo
+repo teams/CFBOYS
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @CFBOYS
+    -   refs/tags  = @CFBOYS
+    RW+            = @CFBOYS
+repo teams/CPP_STL
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @CPP_STL
+    -   refs/tags  = @CPP_STL
+    RW+            = @CPP_STL
+repo teams/CanneryRow
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @CanneryRow
+    -   refs/tags  = @CanneryRow
+    RW+            = @CanneryRow
+repo teams/Chef
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Chef
+    -   refs/tags  = @Chef
+    RW+            = @Chef
+repo teams/ChocoMilk
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @ChocoMilk
+    -   refs/tags  = @ChocoMilk
+    RW+            = @ChocoMilk
+repo teams/ESC
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @ESC
+    -   refs/tags  = @ESC
+    RW+            = @ESC
+repo  teams/Eeyore
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Eeyore
+    -   refs/tags  = @Eeyore
+    RW+            = @Eeyore
+repo teams/IBearHost
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @IBearHost
+    -   refs/tags  = @IBearHost
+    RW+            = @IBearHost
+repo teams/InlineCmnts
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @InlineCmnts
+    -   refs/tags  = @InlineCmnts
+    RW+            = @InlineCmnts
+repo teams/Ironman
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Ironman
+    -   refs/tags  = @Ironman
+    RW+            = @Ironman
+repo teams/JJY
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @JJY
+    -   refs/tags  = @JJY
+    RW+            = @JJY
+repo  teams/Bajingo
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Bajingo
+    -   refs/tags  = @Bajingo
+    RW+            = @Bajingo
+repo  teams/Bajingo
+    R              = @instructors
+    RW  refs/tags  = @Bajingo
+    -   refs/tags  = @Bajingo
+    RW+            = @Bajingo
+repo teams/Javachip
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Javachip
+    -   refs/tags  = @Javachip
+    RW+            = @Javachip
+repo     teams/Eeyore
+    R              = @instructors
+    RW  refs/tags  = @Eeyore
+    -   refs/tags  = @Eeyore
+    RW+            = @Eeyore
+repo teams/LeagueOfFaKe
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @LeagueOfFaKe
+    -   refs/tags  = @LeagueOfFaKe
+    RW+            = @LeagueOfFaKe
+repo teams/MGM
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @MGM
+    -   refs/tags  = @MGM
+    RW+            = @MGM
+repo teams/MIA
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @MIA
+    -   refs/tags  = @MIA
+    RW+            = @MIA
+repo teams/Manual
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Manual
+    -   refs/tags  = @Manual
+    RW+            = @Manual
+repo teams/PNH
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @PNH
+    -   refs/tags  = @PNH
+    RW+            = @PNH
+repo teams/PNH_Fan_Club
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @PNH_Fan_Club
+    -   refs/tags  = @PNH_Fan_Club
+    RW+            = @PNH_Fan_Club
+repo teams/PinkyBrain
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @PinkyBrain
+    -   refs/tags  = @PinkyBrain
+    RW+            = @PinkyBrain
+repo teams/Polymorpheus
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Polymorpheus
+    -   refs/tags  = @Polymorpheus
+    RW+            = @Polymorpheus
+repo teams/RTFM
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @RTFM
+    -   refs/tags  = @RTFM
+    RW+            = @RTFM
+repo teams/Sadboys2002
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Sadboys2002
+    -   refs/tags  = @Sadboys2002
+    RW+            = @Sadboys2002
+repo teams/Slimshadies
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Slimshadies
+    -   refs/tags  = @Slimshadies
+    RW+            = @Slimshadies
+repo teams/Strangelove
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Strangelove
+    -   refs/tags  = @Strangelove
+    RW+            = @Strangelove
+repo teams/T3wesd4
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @T3wesd4
+    -   refs/tags  = @T3wesd4
+    RW+            = @T3wesd4
+repo teams/Team45_07
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Team45_07
+    -   refs/tags  = @Team45_07
+    RW+            = @Team45_07
+repo teams/Team_name
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Team_name
+    -   refs/tags  = @Team_name
+    RW+            = @Team_name
+repo teams/The_Rejects
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @The_Rejects
+    -   refs/tags  = @The_Rejects
+    RW+            = @The_Rejects
+repo teams/WangLingChen
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @WangLingChen
+    -   refs/tags  = @WangLingChen
+    RW+            = @WangLingChen
+repo teams/Whitespace
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Whitespace
+    -   refs/tags  = @Whitespace
+    RW+            = @Whitespace
+repo teams/X
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @X
+    -   refs/tags  = @X
+    RW+            = @X
+repo teams/YOLOSWAG
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @YOLOSWAG
+    -   refs/tags  = @YOLOSWAG
+    RW+            = @YOLOSWAG
+repo teams/YiwenPIs
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @YiwenPIs
+    -   refs/tags  = @YiwenPIs
+    RW+            = @YiwenPIs
+repo teams/YiwenPls
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @YiwenPls
+    -   refs/tags  = @YiwenPls
+    RW+            = @YiwenPls
+repo teams/Eeyore
+    R              = @instructors
+    RW+            = @admins
+    RW  refs/tags  = @Eeyore
+    -   refs/tags  = @Eeyore
+    RW+            = @Eeyore
