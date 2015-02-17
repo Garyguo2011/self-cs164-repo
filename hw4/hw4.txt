@@ -1,0 +1,128 @@
+1. Put an epsilon-free version of 
+
+         S : aSbS | bSaS | /*epsilon*/
+
+here:
+
+
+
+
+2.   
+
+ 2a.
+
+               ';'     ID         '-'    '/'   '?'   ':'   '('        ')'   $
+	    --------------------------------------------------------------
+	     |
+      prog   |         
+      	     |
+	     |
+      expr   |         
+
+
+FIRST(prog) = 
+FIRST(expr) = 
+FOLLOW(prog) = 
+FOLLOW(expr) = 
+
+
+ 2b.       
+
+   Modified grammar:
+
+      Table:
+
+               ';'     ID         '-'    '/'   '?'   ':'   '('        ')'   $
+	    --------------------------------------------------------------
+	     |
+      prog   |
+	     |
+[other       |
+nonterminals]|
+             |
+             |
+             |
+
+
+FIRST(prog) = 
+
+[others]
+
+
+FOLLOW(prog) = 
+
+
+[others]
+
+
+3. Reverse-rightmost derivation:
+
+      id+id+id*(id+id) <==
+
+
+
+
+
+
+
+
+
+
+
+
+      <== E
+
+
+4. Show the modified table row(s) for each change:
+
+   a.
+
+
+
+
+   b.
+
+
+
+
+   c.
+
+
+
+
+   d.
+
+
+5. 
+
+   a. List shifts and reductions, indicating what state the parser is in at 
+      the end:
+
+
+
+
+
+
+
+
+
+   b. List shifts and reductions, indicating what state the parser is in at 
+      the end:
+
+
+6.
+
+   1.  S: 
+
+   2.  S:
+
+   3.  E:
+
+   4.  E:
+
+   5.  F:
+
+   6.  P:
+
+   7.  P:
+

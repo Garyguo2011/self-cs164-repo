@@ -1,0 +1,96 @@
+#!/usr/bin/env python
+
+# HW 4, problem 5.
+
+# Fill in removeEpsilons below.  This program accepts a simple Bison grammar
+# without semantic actions or %... notations among the grammar rules.  Each
+# rule must end with a semicolon.  Whitespace must separate all tokens in
+# the grammar.  For example, write
+#      S : a S b S | b S a S | ;
+# and not
+#      S:a S b S| b S a S |;
+
+
+import re, sys, os
+
+def removeEpsilons(gram):
+    """
+    Returns a grammar recognizing the same language as GRAM, but containing
+    no epsilon productions except possibly one for the start symbol.  GRAM
+    is a non-empty list of grammar rules (such as produced by stringToGrammar).
+    Each grammar rule is a non-empty list of symbols, the first of which
+    is the left-hand side of a production and the remainder of which is the
+    right-hand side of that production.  The left-hand-side symbol of the
+    first rule is the start symbol of the grammar.  The returned grammar may
+    contain new symbols, which must be distinct from all other symbols
+    in the grammar.  To facilitate this, the result of removeEpsilons is
+    undefined if GRAM contains any symbols that end in '_'.  All symbols in
+    GRAM that do not appear on a left-hand side are taken to be terminal
+    symbols."""
+    # REPLACE THE NEXT LINE WITH YOUR SOLUTION.
+    return gram
+
+def Err (msg):
+    print >>sys.stderr, msg
+    sys.exit (1)
+
+def printGrammar (grammar):
+    lhs = None
+    for rule in grammar:
+        if lhs == rule[0]:
+            print "\t|",
+        else:
+            if lhs is not None:
+                print "\t;"
+            lhs = rule[0]
+            print "%s\t:" % lhs,
+        print ' '.join (rule[1:])
+    if lhs is not None:
+        print "\t;"
+        
+def stringToGrammar (strng):
+    def next():
+        return tokens[1][tokens[0]]
+    def scan(tok = None):
+        if tok is not None and tok != next():
+            Err("syntax error near "
+                + ' '.join(tokens[1][tokens[0]:tokens[0]+5]) + "...")
+        tokens[0] += 1
+        return tokens[1][tokens[0]-1]
+    def parse():
+        while next():
+            lhs = scan()
+            scan(':')
+            while True:
+                rule = [lhs]
+                while next() not in ('|', ';', None):
+                    rule.append (scan ())
+                grammar.append (rule)
+                sep = scan()
+                if sep == ';' or sep is None:
+                    break
+    strng = re.sub (r'/\*.*?\*/', '', strng)
+    tokens = [0, re.split(r'\s+', strng.strip()) + [None]]
+    grammar = []
+    parse()
+    return grammar
+
+if len (sys.argv) == 2:
+    inp = open (sys.argv[1], "r")
+elif len (sys.argv) == 1:
+    inp = sys.stdin
+else:
+    Err("Usage: denull [ INPUT-FILE ]")
+
+gram = re.match (r'(?ms)(.*?^%%(?:\s*?))^(.*?)^(%%(?:\s*?)^(.*))', inp.read())
+inp.close ()
+
+if not gram:
+    Err("Mal-formed input grammar")
+
+sys.stdout.write (gram.group(1))
+
+printGrammar (removeEpsilons (stringToGrammar (gram.group(2))))
+
+sys.stdout.write (gram.group(3))
+
