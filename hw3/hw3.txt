@@ -13,14 +13,14 @@ e.
 a. It is First/First conflict.
 unambiguous grammar: S -> 0 S 1 | epsilon
 
-b. It is 
+b. It is LL(1) it is aambiguous.
 
 c. It is First/Follow conflict.
 unambiguous grammar: S -> "(" S ")" | epsilon
 
 
 d. It is First/Follow conflict
-unambiguous grammar: m
+unambiguous grammar: S -> a b S | b a S | epsilon
 
 
 3.
@@ -62,10 +62,6 @@ Rightmost derivation for the same parse tree:
       |    //\ \
           a S b S
             |   |
-
-
-
-
 
 4.
 
