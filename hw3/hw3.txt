@@ -1,20 +1,68 @@
 HW #3
 
 1.
-a. 
-b.
-c.
-d.
+a. String of 0's follow by string of 1's with equal number of 1's and 0's
+b. String begin with '+' or '-', with arbitrary number of '0', '1', 'a', and end with 'aa'
+c. String of arbitrary equally balanced parentheses.
+d. String of arbitrary 'a' and 'b', but number of 'a' equals to number of 'b'
 e.
 
 
 
 2. 
+a. It is First/First conflict.
+unambiguous grammar: S -> 0 S 1 | epsilon
+
+b. It is 
+
+c. It is First/Follow conflict.
+unambiguous grammar: S -> "(" S ")" | epsilon
 
 
+d. It is First/Follow conflict
+unambiguous grammar: m
 
 
 3.
+Transfer 1d to following
+(1) S -> a S b S
+(2) S -> b S a S
+(3) epsilon
+
+1st Leftmost Derivation: S =1=> a S b S =3=> a b S =1=> a b a S b S =3=> a b a b S =3=> a b a b
+Corresponding parse tree:
+       S           
+    / / \ \
+   a  S  b  S
+      |    //\ \
+          a S b S
+            |   |
+
+Rightmost derivation for the same parse tree:
+        S           
+    / /  \ \
+   a  S   b S
+    //\\    |
+   a S b S
+     |   |
+
+2rd Leftmost Derivation: S =1=> a S b S =2=> a b S a S b S =3=> a b a S b S =3=> a b a b S =3=> a b a b
+Corresponding parse tree:
+        S           
+    / /  \ \
+   a  S   b S
+    //\\    |
+   a S b S
+     |   |
+
+Rightmost derivation for the same parse tree:
+       S           
+    / / \ \
+   a  S  b  S
+      |    //\ \
+          a S b S
+            |   |
+
 
 
 
@@ -24,8 +72,8 @@ e.
 
 
 5.
-a.
-b.
+a. S -> 
+b. S ->  0 S 1 | 1 S 0 | epsilon
 c.
 d.
 e.
