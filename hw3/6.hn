@@ -51,8 +51,24 @@
 
 /* REPLACE THE RULE BELOW WITH YOUR SOLUTION (ONE OR MORE RULES) */
 
-true : '1' 
-     ;
+outTrue : singleTrue | trueForTwo | outTrue '*' outTrue | three | outTrue '+' outTrue 
+          | outTrue '+' outFalse | outFalse '+' outTrue | '(' outTrue ')' 
+          | '-' '(' outFalse ')' | '-' '-' '(' outTrue ')' 
+          ;
+outFalse : singleFalse | falseForTwo | outFalse '*' outFalse | outTrue '*' outFalse 
+           | outFalse '*' outTrue | outFalse '+' outFalse | '(' outFalse ')' 
+           | '-' '(' outTrue ')' | '-' '-' '(' outFalse ')' 
+           ;
+three : singleTrue '+' singleTrue '*' singleFalse ;
+falseForTwo : singleFalse '*' trueOrFalse | trueOrFalse '*' singleFalse 
+            | singleFalse '+' singleFalse 
+            ;
+trueForTwo : singleTrue '*' singleTrue | singleTrue '+' singleTrue 
+           | singleFalse '+' singleTrue | singleTrue '+' singleFalse 
+           ;
+trueOrFalse : singleFalse | singleTrue ;
+singleFalse : '0' | '-' '1' ;
+singleTrue : '1' | '-' '0' ;
 
 /*
 S : '1' 
