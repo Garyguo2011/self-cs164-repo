@@ -5,7 +5,7 @@ a. String of 0's follow by string of 1's with equal number of 1's and 0's
 b. String begin with '+' or '-', with arbitrary number of '0', '1', 'a', and end with 'aa'
 c. String of arbitrary equally balanced parentheses.
 d. String of arbitrary 'a' and 'b', but number of 'a' equals to number of 'b'
-e. 
+e. String start with 'a' or '(' and end with 'a' ')' or '*', arbitrary number of 'a' can be inside of '+' between '(' and ')''. (i.e it is a regular expression contain 'a', '*', '+' and grouping)
 
 
 
