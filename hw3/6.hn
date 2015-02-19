@@ -59,6 +59,7 @@ S : '1'
   | S + S
   | - S
   | '(' S ')'
+  ;
 
 /* LEXICAL RULES (you don't have to touch these) */
 

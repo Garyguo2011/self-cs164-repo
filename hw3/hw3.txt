@@ -5,7 +5,7 @@ a. String of 0's follow by string of 1's with equal number of 1's and 0's
 b. String begin with '+' or '-', with arbitrary number of '0', '1', 'a', and end with 'aa'
 c. String of arbitrary equally balanced parentheses.
 d. String of arbitrary 'a' and 'b', but number of 'a' equals to number of 'b'
-e.
+e. 
 
 
 
@@ -13,14 +13,15 @@ e.
 a. It is First/First conflict.
 unambiguous grammar: S -> 0 S 1 | epsilon
 
-b. It is LL(1) it is aambiguous.
+b. It is unambiguous because it is LL(1)
 
 c. It is First/Follow conflict.
 unambiguous grammar: S -> "(" S ")" | epsilon
 
-
 d. It is First/Follow conflict
 unambiguous grammar: S -> a b S | b a S | epsilon
+
+e. It is unambiguous because this grammar doesn't contain epsilon, which indicates it is not First/Follow conflict. 'a' '(' are only two FIRST characters, it doesn't have any overlap, so it is no First/First conflict.
 
 
 3.
@@ -38,13 +39,8 @@ Corresponding parse tree:
           a S b S
             |   |
 
-Rightmost derivation for the same parse tree:
-        S           
-    / /  \ \
-   a  S   b S
-    //\\    |
-   a S b S
-     |   |
+Rightmost derivation for the same parse tree: S =1=> a S b S =1=> a S b a S b S =3=> a S b a S b =3=> a S b a b =3=> a b a b
+
 
 2rd Leftmost Derivation: S =1=> a S b S =2=> a b S a S b S =3=> a b a S b S =3=> a b a b S =3=> a b a b
 Corresponding parse tree:
@@ -55,23 +51,36 @@ Corresponding parse tree:
    a S b S
      |   |
 
-Rightmost derivation for the same parse tree:
-       S           
-    / / \ \
-   a  S  b  S
-      |    //\ \
-          a S b S
-            |   |
+Rightmost derivation for the same parse tree: S =1=> a S b S =3=> a S b =2=> a b S a S b =3=> a b S a b =3=> a b a b
+
 
 4.
+It is clear that two base cases '11' and '1101' can be divisible by 3. 
+For 'N 0' means concat '0' at end of any basic cases, the new value of number will become a number that can be divisible by 3 ('11' or '1101') multiplied by 2 (left shrift by 1). It will remains a number divisible by 3.
+For 'N N' means two numbers that divisible by 3, we denote first as 3i, second as 3j. Two numbers concat as one large string will mean 3i << len(3j) + 3j = 3i * 2^len(3j) + 3j = 3 (i * 2^len(3j) + j). It also prove 'N N' will divisible by 3
+Therefore, N -> 11 | 1001 | N 0 | N N can be divisible by 3.
 
+No, this grammar DOES NOT generate all positive binary numbers that are divisible by 3. Counter Example: 33 as number divisible by 3, its binary format 100001 DOES NOT fit that grammar.
 
 
 5.
-a. S -> 
-b. S ->  0 S 1 | 1 S 0 | epsilon
-c.
+a. S -> epsilon | 0 1 | 0 1 S | 1 S
+b. S -> 0 S 1 | 1 S 0 | S S | epsilon
+
+c. 
+RESULT -> ZERO_GREATER_ONE | ONE_GREATER_ZERO
+ZERO_GREATER_ONE -> S 0 ZERO_GREATER_ONE | S 0 S
+ONE_GREATER_ZERO -> S 1 ONE_GREATER_ZERO | S 1 S
+S -> 0 S 1 | 1 S 0 | S S | epsilon
+
 d.
+ONE_STAR ->  | 1 ONE_STAR
+ZERO_STAR ->  | 0 ZERO_STAR
+ZERO_PLUS -> 0 ZERO_STAR
+GROUP -> ZERO_PLUS 1 ZERO_STAR
+GROUP_STAR -> | GROUP GROUP_STAR
+RESULT -> ONE_STAR ZERO_STAR GROUP_STAR
+
 e.
 f.
 
