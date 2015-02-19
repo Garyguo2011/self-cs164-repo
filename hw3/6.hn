@@ -51,8 +51,10 @@
 
 /* REPLACE THE RULE BELOW WITH YOUR SOLUTION (ONE OR MORE RULES) */
 
-/* true : '1' ; */
+true : '1' 
+     ;
 
+/*
 S : '1' 
   | '0' 
   | S * S
@@ -60,7 +62,7 @@ S : '1'
   | - S
   | '(' S ')'
   ;
-
+*/
 /* LEXICAL RULES (you don't have to touch these) */
 
 *: ' ' | '\t' | '\n' | '\r' ;
