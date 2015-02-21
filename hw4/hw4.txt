@@ -1,5 +1,5 @@
 1. Put an epsilon-free version of 
- a 
+
          S : aSbS | bSaS | /*epsilon*/
 
 here:
