@@ -3,53 +3,95 @@
          S : aSbS | bSaS | /*epsilon*/
 
 here:
-
-
-
+START : S | ;
+S : a S b S | b S a S | a b S | a S b | b a S | b S a | a b | b a
 
 2.   
 
  2a.
 
                ';'     ID         '-'    '/'   '?'   ':'   '('        ')'   $
-	    --------------------------------------------------------------
-	     |
-      prog   |         
-      	     |
-	     |
-      expr   |         
+            --------------------------------------------------------------
+             |
+      prog   |         2                                    2               1
+             |
+             |
+      expr   |        3456                                 4567
 
 
-FIRST(prog) = 
-FIRST(expr) = 
-FOLLOW(prog) = 
-FOLLOW(expr) = 
+1.FIRST(prog) = epslon
+2.FIRST(prog) = {'(', ID}
+3.FIRST(expr) = ID
+4.FIRST(expr) = {'(', ID}
+5.FIRST(expr) = {'(', ID}
+6.FIRST(expr) = {'(', ID}
+7.FIRST(expr) = {'(', ID}
 
+1.FOLLOW(prog) = $
+2.FOLLOW(prog) = $
+3.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+4.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+5.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+6.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+7.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+
+FIRST(prog) = {epslon, '(', ID}
+FIRST(expr) = {ID, '('}
+FOLLOW(prog) = $ 
+FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
 
  2b.       
 
    Modified grammar:
 
+   1.prog -> epslon
+   2.prog -> expr ';'
+   3.expr -> ID
+   4.expr -> expr tail
+   5.tail -> '-' expr
+   6.tail -> '/' expr
+   7.tail -> '?' expr ':' expr
+   8.expr -> '(' expr ')' 
+
       Table:
 
                ';'     ID         '-'    '/'   '?'   ':'   '('        ')'   $
-	    --------------------------------------------------------------
-	     |
-      prog   |
-	     |
-[other       |
-nonterminals]|
+            --------------------------------------------------------------
+             |
+      prog   |         2                                    2               1
+             |
+      expr   |         34                                   4
+             |
+      tail   |                     5      6     7               
              |
              |
-             |
 
 
-FIRST(prog) = 
+  1.FIRST(prog) = epslon
+  2.FIRST(prog) = {'(', ID}
+  3.FIRST(expr) = ID
+  4.FIRST(expr) = {'(', ID}
+  5.FIRST(tail) = '-'
+  6.FIRST(tail) = '/'
+  7.FIRST(tail) = '?'
+  8.FIRST(expr) = '('
 
-[others]
+  1.FOLLOW(prog) = $
+  2.FOLLOW(prog) = $
+  3.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+  4.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+  5.FOLLOW(tail) = {'-', '/', '?', ':', ')', $}
+  6.FOLLOW(tail) = {'-', '/', '?', ':', ')', $}
+  7.FOLLOW(tail) = {'-', '/', '?', ':', ')', $}
+  8.FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
 
+FIRST(prog) = {epslon, '(', ID}
+FIRST(expr) = {'(', ID}
+FIRST(tail) = {'-', '/', '?'}
 
-FOLLOW(prog) = 
+FOLLOW(prog) = $ 
+FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
+FOLLOW(expr) = {'-', '/', '?', ':', ')', $}
 
 
 [others]
@@ -57,40 +99,36 @@ FOLLOW(prog) =
 
 3. Reverse-rightmost derivation:
 
-      id+id+id*(id+id) <==
-
-
-
-
-
-
-
-
-
-
-
-
+      id+id+id*(id+id) <== E+id+id*(id+id) <== E+E+id*(id+id)
+      <== E+id*(id+id) <== E+E*(id+id) <== E*(id+id)
+      <== E*(E+id) <== E*(E+E)
+      <== E*(E) <== E*E
       <== E
-
 
 4. Show the modified table row(s) for each change:
 
-   a.
+   a. change state 7 to following:
+   State  id  '+'  '*'  '('  ')'  EOF  E
+   --------------------------------------
+    7          r1   r1       r1   r1
 
+   b. change state 7,8 to following:
+   State  id  '+'  '*'  '('  ')'  EOF  E
+   --------------------------------------
+    7          r1   r1       r1   r1
+    8          s4   r2       r2   r2
 
+   c. change state 7 to following:
+   State  id  '+'  '*'  '('  ')'  EOF  E
+   --------------------------------------
+    7         s4   r1       r1    r1
 
+   d. change state 7,8 to following:
+   State  id  '+'  '*'  '('  ')'  EOF  E
+   --------------------------------------
+    7         r1             r1   r1
+    8              r2        r2   r2
 
-   b.
-
-
-
-
-   c.
-
-
-
-
-   d.
 
 
 5. 
@@ -98,19 +136,42 @@ FOLLOW(prog) =
    a. List shifts and reductions, indicating what state the parser is in at 
       the end:
 
-
-
-
-
-
+      iteration    states on stack      input               action
+      -------------------------------------------------------------
+      1            0                    @id+id(id)          s3
+      2            0|3                  id@+id(id)          r4
+      3            0|                   E@+id(id)           s1
+      4            0|1                  E@+id(id)           s4
+      5            0|1|4                E+@id(id)           s3
+      6            0|1|4|3              E+id@(id)           Error
 
 
 
    b. List shifts and reductions, indicating what state the parser is in at 
       the end:
 
+      iteration    states on stack      input               action
+      -------------------------------------------------------------
+      1            0                    @id+id(id)          s3
+      2            0|3                  id@+id(id)          r4
+      3            0|                   E@+id(id)           s1
+      4            0|1                  E@+id(id)           s4
+      5            0|1|4                E+@id(id)           s3
+      6            0|1|4|3              E+id@(id)           r4
+      7            0|1|4                E+E@(id)            s7
+      8            0|1|4|7              E+E@(id)            r1
+      9            0|1|4                E@(id)              s2
+      10           0|1|4|2              E(@id)              s3
+      11           0|1|4|2|3            E(id@)              r4
+      12           0|1|4|2              E(E@)               s6
+      13           0|1|4|2|6            E(E@)               s9
+      14           0|1|4|2|6|9          E(E)@               r3
+      15           0|1|4|2|6            EE@                 Error
+
 
 6.
+
+
 
    1.  S: 
 

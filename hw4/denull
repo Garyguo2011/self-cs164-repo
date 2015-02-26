@@ -28,7 +28,36 @@ def removeEpsilons(gram):
     GRAM that do not appear on a left-hand side are taken to be terminal
     symbols."""
     # REPLACE THE NEXT LINE WITH YOUR SOLUTION.
+    epsilon_list = get_production_contain_epslon(gram)
+
+    while len(epsilon_list) > 0:
+        epsilon_production = epsilon_list[0]
+        if epsilon_production == ['S']:
+            start_with_epsilon = True
+        gram.remove(epsilon_production)
+        for rest in gram:
+            if len(rest) == 0:
+                continue
+            for i in range(1 , len(rest)):
+                if rest[i] == epsilon_production[0]:
+                    extend_list = list(rest)
+                    extend_list.pop(i)
+                    if not extend_list in gram:
+                        gram.append(extend_list)
+        epsilon_list = get_production_contain_epslon(gram)
+
+    # Start State should not take it on the right hand side
+    gram.insert(0, ['BEGIN', 'S'])
+    if start_with_epsilon:
+        gram.insert(0, ['BEGIN'])
     return gram
+
+def get_production_contain_epslon(gram):
+    list_epslon = []
+    for lst in gram:
+        if len(lst) == 1:
+            list_epslon.append(lst)
+    return list_epslon
 
 def Err (msg):
     print >>sys.stderr, msg
