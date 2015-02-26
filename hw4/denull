@@ -29,7 +29,7 @@ def removeEpsilons(gram):
     symbols."""
     # REPLACE THE NEXT LINE WITH YOUR SOLUTION.
     epsilon_list = get_production_contain_epslon(gram)
-
+    start_with_epsilon = False
     while len(epsilon_list) > 0:
         epsilon_production = epsilon_list[0]
         if epsilon_production == ['S']:
