@@ -1,7 +1,15 @@
 HW #5 solutions
 
 2.
-
+String[] sampleString = new String[2];
+sample[0] = "abc";
+sample[1] = "bcd";
+Object[] sampleObject = new Object[2];
+sampleObject = sampleString;
+System.out.println(sampleObject[0]);
+// This will be allowed since Object
+System.out.println(sampleObject[0].substring(0,1));
+// This will output a runtime error since Object class doesn't contain substring.
 
 
 3.
