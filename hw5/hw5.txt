@@ -19,10 +19,10 @@ def bar():
 print (bar())
 
 # In Static scoping:
-# Program above will print "Static"
+# Program above will print "static"
 
 # In Dynamic scoping:
-# Program above will print "Dynamic"
+# Program above will print "dynamic"
 
 4.
 (1) def Y f = f (Y f)
@@ -40,3 +40,4 @@ From (3), since "int -> int" is "Y g" output type. then "x" will be input as int
 Y: int -> int -> int -> int
 g: int -> int
 fact: int -> int
+
