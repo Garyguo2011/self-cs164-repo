@@ -1,21 +1,42 @@
 HW #5 solutions
 
 2.
-String[] sampleString = new String[2];
-sample[0] = "abc";
-sample[1] = "bcd";
-Object[] sampleObject = new Object[2];
-sampleObject = sampleString;
-System.out.println(sampleObject[0]);
-// This will be allowed since Object
-System.out.println(sampleObject[0].substring(0,1));
-// This will output a runtime error since Object class doesn't contain substring.
-
+Object sampleOject = new Integer(1);
+String sampleString = (String) sampleObject;
+System.out.println(sampleString);
+// This will output ClassCastException
 
 3.
+flag = "static"
+def foo():
+	buffer = flag
+	return buffer
 
+def bar():
+	flag = "dynamic"
+	return foo()
 
+print (bar())
 
+# In Static scoping:
+# Program above will print "Static"
+
+# In Dynamic scoping:
+# Program above will print "Dynamic"
 
 4.
+(1) def Y f = f (Y f)
+(2) def g h x = if x = 0 then 1 else h(x-1) * x fi
+(3) def fact x = Y g x
 
+From (2), According to "if x = 0", we know type of x if integer. According to "then 1" we can get the return type for this function is Integer. So the type of "g" is "int -> int".
+
+From (3), According to "Y g x", we know "g" is "int -> int", which is Y's input. So the input of Y will be "int -> int". 
+
+From (1), we see the function "f" is recursive call itself, then it return type will be the same as the input type. to the Y output will be "int -> int". Therefore Y's type will "int -> int -> int -> int".
+
+From (3), since "int -> int" is "Y g" output type. then "x" will be input as int, and final return type will int. As conclude, the type of "fact" will be "int -> int"
+
+Y: int -> int -> int -> int
+g: int -> int
+fact: int -> int
