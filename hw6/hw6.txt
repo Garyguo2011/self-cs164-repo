@@ -2,10 +2,15 @@ HW #6 Solutions
 
 1.  C Program:
 
-
-
-
-
+int f (int x, int y) {
+	int i = x;
+	int j = y;
+	while (i < y) {
+		j = i * 2;
+		i = i + 1;
+	}
+	return j;
+}
 
 
 
@@ -13,40 +18,30 @@ HW #6 Solutions
 
 2. IL code:
 
+cgen(&e1[e2,e3],t):
+	cgen(e1, t1); cgen(e2,t2); cgen(e3, t3)
+	cgen(N, t4)
+	=> t5 := *t1
+	=> t6 := *(t1+4)
+	=> t7 := *(t1+8)
+	=> t8 := t6 * t2
+	=> t9 := t7 * t3
+	=> t10 := t5 + t8
+	=> t11 := t10 + t9
 
 
 
 
 
-3
+3.
   a.
-
-
-
-
+  	We assume that all iterms of the array have fixed size- S bytes - and are sequentially in memory. first to compute the beginning of a row and then to compute the column with that now. then use &array + <j * size of array element> to access column j of B.
 
   b.
-
-
-
+  	We construct a new array and first to compute the beginning of a row, we need to measure of the total length of the array. Then we increment pointer one by one and finally reach the end of b.
 
   c.
-
-
-
-4. 
-
-
-
-
-
-
-
-
-
-
-5. 
-
+  	We assume that all iterms of the array have fixed size - S bytes - and are sequentially in memory. Measure the length of array, and then set pointer point to the last element of array. then decrement the point and assign the value of element to another array. iterate until the end.
 
 
 
@@ -55,49 +50,71 @@ HW #6 Solutions
 6.
   a.
 
+  These three two-dimensional arrays will laid out in memeory as "b" "c" "a"
 
-  b-d. [Just show the final result.  Here is the original, if you want to 
-        use it (please erase it if you don't).]
 
-Entry:
-  i := 0             #1
-  goto L6	     #2
-L1:
-  j := 0	     #3
-  goto L5      	     #4
-L2:
-  k := 0	     #5
-  goto L4	     #6
-L3:
-  t1 := 4 * n	     #7
-  t2 := t1 * i	     #8
-  t3 := 4 * j	     #9
-  t4 := t2 + t3	     #10
-  t5 := *(t4 + c)    #11
-  t6 := 4 * n	     #12
-  t7 := t6 * i	     #13
-  t8 := 4 * k	     #14
-  t9 := t7 + t8	     #15
-  t10 := *(t9 + a)   #16
-  t11 := 4 * n	     #17
-  t12 := t11 * k     #18
-  t13 := 4 * j	     #19
-  t14 := t12 + t13   #20
-  t15 := *(t14 + b)  #21
-  t16 := t10 * t15   #22
-  t17 := t5 + t16    #23
-  t18 := 4 * n	     #24
-  t19 := t18 * i     #25
-  t20 := 4 * j	     #26
-  t21 := t19 + t20   #27
-  *(t21+c) := t17    #28
-  k := k + 1	     #29
-L4:
-  if k < n: goto L3  #30
-  j := j + 1	     #31
-L5:
-  if j < n: goto L2  #32
-  i := i + 1	     #33
-L6:
-  if i < n: goto L1  #34
-Exit:
+  b.
+                         |-------------------------------------------------|
+                         |                                                 |
+  basic block (#1, #2) --v--> basic block (#34) -> basic block (#32, #33)--|--
+
+  --> basic block(#7 - #29) --> basic block (#30, #31)
+
+  c.
+	  fn: 
+	     t1 := 4 * n
+	     t2 := t1 * i
+	     t3 := 4 * j
+	     t4 := t2 + t3
+	     t5 := 4 * n
+	  	 t6 := t5 * i
+	     t7 := 4 * j
+	     t8 := t5 + t6
+	     *(t10+c) := t11
+	     k := k + 1
+
+
+  d.
+
+	Entry:
+	  i := 0             #1
+	  goto L6	     #2
+	L1:
+	  j := 0	     #3
+	  goto L5      	     #4
+	L2:
+	  k := 0	     #5
+	  goto L4	     #6
+	L3:
+	  t1 := 4 * n	     #7
+	  t2 := t1 * i	     #8
+	  t3 := 4 * j	     #9
+	  t4 := t2 + t3	     #10
+	  t5 := *(t4 + c)    #11
+	  t6 := 4 * n	     #12
+	  t7 := t6 * i	     #13
+	  t8 := 4 * k	     #14
+	  t9 := t7 + t8	     #15
+	  t10 := *(t9 + a)   #16
+	  t11 := 4 * n	     #17
+	  t12 := t11 * k     #18
+	  t13 := 4 * j	     #19
+	  t14 := t12 + t13   #20
+	  t15 := *(t14 + b)  #21
+	  t16 := t10 * t15   #22
+	  t17 := t5 + t16    #23
+	  t18 := 4 * n	     #24
+	  t19 := t18 * i     #25
+	  t20 := 4 * j	     #26
+	  t21 := t19 + t20   #27
+	  *(t21+c) := t17    #28
+	  k := k + 1	     #29
+	L4:
+	  if k < n: goto L3  #30
+	  j := j + 1	     #31
+	L5:
+	  if j < n: goto L2  #32
+	  i := i + 1	     #33
+	L6:
+	  if i < n: goto L1  #34
+	Exit:
